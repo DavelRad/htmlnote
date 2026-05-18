@@ -1,0 +1,11 @@
+{
+  "name": "htmlnote",
+  "description": "Visual review for AI-generated HTML. When Claude Code writes or edits an HTML file, a browser tab opens so you can click elements, leave notes, and copy them back into chat.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "DavelRad"
+  },
+  "repository": "https://github.com/DavelRad/htmlnote",
+  "keywords": ["html", "review", "annotation", "claude-code", "plugin"]
+}

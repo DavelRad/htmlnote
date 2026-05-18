@@ -1,0 +1,66 @@
+name: release
+
+# Fires on tag push (v*). Builds per-platform binaries with bun --compile,
+# uploads them + sha256 checksums to a fresh GitHub Release.
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  build-release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      # Lockfile is generated on macOS (darwin-arm64) and pins Rollup's native
+      # binding for that arch only; npm doesn't reconcile that on Linux runners.
+      # Rollup itself recommends deleting both before re-installing. We trade
+      # cached-install speed for cross-platform reliability — fine for a tag
+      # release that runs maybe twice a month.
+      # https://github.com/npm/cli/issues/4828
+      - name: Install deps (regenerate lockfile for linux runner)
+        run: |
+          rm -rf node_modules package-lock.json
+          npm install --no-audit --no-fund
+
+      - name: Build SPA + esbuild CLI bundle
+        run: npm run build
+
+      - name: Compile binaries for all targets
+        run: |
+          mkdir -p release
+          for tgt in darwin-arm64 darwin-x64 linux-x64 linux-arm64; do
+            echo "::group::bun build --compile --target=bun-$tgt"
+            bun build dist/cli.mjs --compile --target=bun-$tgt --outfile=release/htmlnote-$tgt
+            echo "::endgroup::"
+          done
+
+      - name: SHA256 checksums
+        run: |
+          cd release
+          for f in htmlnote-*; do
+            sha256sum "$f" > "$f.sha256"
+          done
+          ls -lh
+
+      - name: Create GitHub Release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" \
+            --title "$GITHUB_REF_NAME" \
+            --generate-notes \
+            release/*

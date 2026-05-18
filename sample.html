@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sample Landing</title>
+    <style>
+      :root {
+        --bg: #fafaf7;
+        --fg: #18181b;
+        --muted: #71717a;
+        --accent: #ea580c;
+        --border: #e5e5e3;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--fg);
+        font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Inter", system-ui,
+          sans-serif;
+      }
+      header,
+      section,
+      footer {
+        max-width: 880px;
+        margin: 0 auto;
+        padding: 24px;
+      }
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid var(--border);
+      }
+      .brand {
+        font-weight: 600;
+        letter-spacing: -0.01em;
+      }
+      nav a {
+        color: var(--muted);
+        margin-left: 24px;
+        text-decoration: none;
+      }
+      .hero {
+        padding: 64px 24px;
+        text-align: center;
+      }
+      .hero h1 {
+        font-size: 56px;
+        line-height: 1.05;
+        margin: 0 0 16px;
+        letter-spacing: -0.03em;
+      }
+      .hero p {
+        max-width: 540px;
+        margin: 0 auto 24px;
+        color: var(--muted);
+        font-size: 18px;
+      }
+      .cta {
+        display: inline-block;
+        background: var(--accent);
+        color: white;
+        padding: 12px 24px;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: 500;
+      }
+      .features {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+        padding: 24px;
+      }
+      .feature {
+        padding: 24px;
+        background: white;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+      }
+      .feature h3 {
+        margin: 0 0 8px;
+        font-size: 17px;
+      }
+      .feature p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+      }
+      .pricing {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+      .plan {
+        padding: 24px;
+        background: white;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        text-align: center;
+      }
+      .plan .price {
+        font-size: 36px;
+        font-weight: 600;
+        margin: 8px 0;
+      }
+      .plan button {
+        margin-top: 16px;
+        padding: 8px 16px;
+        background: transparent;
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      footer {
+        border-top: 1px solid var(--border);
+        color: var(--muted);
+        font-size: 13px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="brand">Acme</div>
+      <nav>
+        <a href="#">Features</a>
+        <a href="#">Pricing</a>
+        <a href="#">Docs</a>
+        <a href="#">Sign in</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <h1>Welcome to our app</h1>
+      <p>The platform that does the things.</p>
+      <a href="#" class="cta">Get started</a>
+    </section>
+
+    <section class="features">
+      <div class="feature">
+        <h3>Fast</h3>
+        <p>Built on modern web tech for instant page loads.</p>
+      </div>
+      <div class="feature">
+        <h3>Reliable</h3>
+        <p>99.99% uptime backed by enterprise infrastructure.</p>
+      </div>
+      <div class="feature">
+        <h3>Secure</h3>
+        <p>SOC 2 Type II compliance and end-to-end encryption.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 style="text-align: center; margin: 32px 0">Pricing</h2>
+      <div class="pricing">
+        <div class="plan">
+          <div>Starter</div>
+          <div class="price">$0</div>
+          <div style="color: var(--muted); font-size: 13px">Free forever</div>
+          <button>Get started</button>
+        </div>
+        <div class="plan">
+          <div>Pro</div>
+          <div class="price">$29</div>
+          <div style="color: var(--muted); font-size: 13px">Per month</div>
+          <button>Get started</button>
+        </div>
+        <div class="plan">
+          <div>Team</div>
+          <div class="price">$99</div>
+          <div style="color: var(--muted); font-size: 13px">Per month</div>
+          <button>Get started</button>
+        </div>
+      </div>
+    </section>
+
+    <footer>© 2026 Acme — built with love</footer>
+  </body>
+</html>

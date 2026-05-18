@@ -1,0 +1,30 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "htmlnote",
+  "owner": {
+    "name": "DavelRad"
+  },
+  "metadata": {
+    "description": "Visual review for AI-generated HTML. Click elements, leave notes, copy back into chat.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "htmlnote",
+      "source": "./",
+      "description": "Visual review for AI-generated HTML. When Claude Code writes or edits an HTML file, a browser tab opens so you can click elements, leave notes, and copy them back into chat.",
+      "version": "0.1.0",
+      "author": {
+        "name": "DavelRad"
+      },
+      "keywords": [
+        "html",
+        "review",
+        "annotation",
+        "claude-code",
+        "plugin"
+      ],
+      "category": "development"
+    }
+  ]
+}

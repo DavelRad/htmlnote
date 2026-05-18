@@ -5,9 +5,9 @@
 **Visual review for AI-generated HTML in Claude Code.**
 Click elements, leave notes, paste back into chat.
 
-[![Watch demo](https://img.youtube.com/vi/nRe_bFCfU6c/hqdefault.jpg)](https://youtu.be/nRe_bFCfU6c)
+[![Watch demo](https://img.youtube.com/vi/88mcHRczZlU/hqdefault.jpg)](https://youtu.be/88mcHRczZlU)
 
-[Watch the 1-minute demo →](https://youtu.be/nRe_bFCfU6c)
+[Watch the 1-minute demo →](https://youtu.be/88mcHRczZlU)
 
 </div>
 
